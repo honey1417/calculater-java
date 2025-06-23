@@ -19,7 +19,7 @@ provider "kubernetes" {
 #Helm provider lets Terraform deploy applications on GKE using Helm charts.
 
 provider "helm" {
-  kubernetes ={
+  kubernetes {
     host                   = "https://${data.google_container_cluster.gke_cluster.endpoint}"
     token                  = data.google_client_config.default.access_token
     cluster_ca_certificate = base64decode(data.google_container_cluster.gke_cluster.master_auth[0].cluster_ca_certificate)
