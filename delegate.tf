@@ -19,7 +19,7 @@ provider "kubernetes" {
 #Helm provider lets Terraform deploy applications on GKE using Helm charts.
 
 provider "helm" {
-  kubernetes = {
+  kubernetes ={
     host                   = "https://${data.google_container_cluster.gke_cluster.endpoint}"
     token                  = data.google_client_config.default.access_token
     cluster_ca_certificate = base64decode(data.google_container_cluster.gke_cluster.master_auth[0].cluster_ca_certificate)
@@ -29,8 +29,9 @@ provider "helm" {
 module "delegate" {
   source = "harness/harness-delegate/kubernetes"
   version = "0.2.2"
-  account_id = "ucHySz2jQKKWQweZdXyCog"
-  delegate_token = "NTRhYTY0Mjg3NThkNjBiNjMzNzhjOGQyNjEwOTQyZjY="
+
+  account_id = "TnI9iZ6IRnCmpxjiN2xMGg"
+  delegate_token = "YzJjNmU3MmYxNjZmM2ViYjZhMmQ2MzBlNGJjNDhhOGM="
   delegate_name = "terraform-delegate-harshini"
   deploy_mode = "KUBERNETES"
   namespace = "harness-delegate-ng"
