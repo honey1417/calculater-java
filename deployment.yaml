@@ -1,0 +1,35 @@
+metadata:
+  name: calculator-snapshot-deployment
+spec:
+  selector:
+    matchLabels:
+      app: calculator-snapshot
+  template:
+    metadata:
+      labels:
+        app: calculator-snapshot
+    spec:
+      containers:
+        - name: calculator-snapshot
+          image: harshini1402/calculator-repo:snap-1
+          ports:
+            - containerPort: 8081
+
+---
+
+metadata:
+  name: calculator-release-deployment
+spec:
+  selector:
+    matchLabels:
+      app: calculator-release
+  template:
+    metadata:
+      labels:
+        app: calculator-release
+    spec:
+      containers:
+        - name: calculator-release
+          image: harshini1402/calculator-repo:release-1
+          ports:
+            - containerPort: 8081
