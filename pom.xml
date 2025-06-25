@@ -55,4 +55,15 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+	  <repository>
+		<id>nexus-releases</id>
+		<url>http://34.10.114.146:8081/repository/maven-artifacts-release-repo/</url>
+	  </repository>
+      <snapshotRepository>
+        <id>nexus-snapshots</id>
+        <url>http://34.10.114.146:8081/repository/maven-artifacts-snapshots-repo/</url>
+      </snapshotRepository>
+    </distributionManagement>
+
 </project>
