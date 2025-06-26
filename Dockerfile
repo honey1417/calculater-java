@@ -9,10 +9,10 @@ WORKDIR /app
 ARG NEXUS_USERNAME
 ARG NEXUS_PASSWD
 
-# Download the latest snapshot JAR from Nexus using curl with credentials
+# Download the latest release JAR from Nexus using curl with credentials
 RUN curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
   -o app.jar \
-  "http://34.10.114.146:8081/repository/maven-artifacts-snapshots-repo/com/example/calculator/0.0.1-SNAPSHOT/calculator-0.0.1-SNAPSHOT.jar"
+  "http://34.10.114.146:8081/repository/maven-artifacts-release-repo/com/example/calculator/1.0.0/calculator-1.0.0.jar"
 
 # ---------- Stage 2: Final Image ----------
 # Use a lightweight JRE image to run the application
