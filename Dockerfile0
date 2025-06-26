@@ -10,15 +10,24 @@ ARG BUILD_TYPE=SNAPSHOT  # Accepts 'SNAPSHOT' or 'RELEASE'
 
 # Set the correct JAR URL based on the build type
 # Use shell logic in RUN to fetch the correct JAR
+# RUN if [ "$BUILD_TYPE" = "SNAPSHOT" ]; then \
+#       curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
+#       -o app.jar \
+#       "http://34.10.114.146:8081/repository/maven-artifacts-snapshots-repo/com/example/calculator/0.0.1-SNAPSHOT/calculator-0.0.1-SNAPSHOT.jar"; \
+#     else \
+#       curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
+#       -o app.jar \
+#       "http://34.10.114.146:8081/repository/maven-artifacts-release-repo/com/example/calculator/1.0.0/calculator-1.0.0.jar"; \
+#     fi
 RUN if [ "$BUILD_TYPE" = "SNAPSHOT" ]; then \
-      curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
-      -o app.jar \
-      "http://34.10.114.146:8081/repository/maven-artifacts-snapshots-repo/com/example/calculator/0.0.1-SNAPSHOT/calculator-0.0.1-SNAPSHOT.jar"; \
-    else \
-      curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
-      -o app.jar \
-      "http://34.10.114.146:8081/repository/maven-artifacts-release-repo/com/example/calculator/1.0.0/calculator-1.0.0.jar"; \
-    fi
+    curl -f -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
+    -o app.jar \
+    "http://34.10.114.146:8081/repository/maven-artifacts-snapshots-repo/com/example/calculator/0.0.1-SNAPSHOT/calculator-0.0.1-SNAPSHOT.jar"; \
+else \
+    curl -f -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
+    -o app.jar \
+    "http://34.10.114.146:8081/repository/maven-artifacts-release-repo/com/example/calculator/1.0.0/calculator-1.0.0.jar"; \
+fi
 
 # ---------- Stage 2: Final Image ----------
 FROM eclipse-temurin:17-jre
