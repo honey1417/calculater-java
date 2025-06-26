@@ -18,21 +18,21 @@ spec:
             - containerPort: 8081
 
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: calculator-release-deployment
-spec:
-  selector:
-    matchLabels:
-      app: calculator-release
-  template:
-    metadata:
-      labels:
-        app: calculator-release
-    spec:
-      containers:
-        - name: calculator-release
-          image: harshini1402/calculator-repo:release-1
-          ports:
-            - containerPort: 8081
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: calculator-release-deployment
+# spec:
+#   selector:
+#     matchLabels:
+#       app: calculator-release
+#   template:
+#     metadata:
+#       labels:
+#         app: calculator-release
+#     spec:
+#       containers:
+#         - name: calculator-release
+#           image: harshini1402/calculator-repo:release-1
+#           ports:
+#             - containerPort: 8081
