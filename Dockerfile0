@@ -13,7 +13,7 @@ ARG BUILD_TYPE=SNAPSHOT  # Accepts 'SNAPSHOT' or 'RELEASE'
 RUN if [ "$BUILD_TYPE" = "SNAPSHOT" ]; then \
       curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
       -o app.jar \
-      "http://34.10.114.146:8081/repository/maven-artifacts-snapshots-repo/com/example/calculator/0.0.1-SNAPSHOT/calculator-0.0.1-SNAPSHOT.jar"; \
+      "http://34.10.114.146:8081/repository/maven-artifacts-snapshots-repo/	com/example/calculator/0.0.1-SNAPSHOT/calculator-0.0.1-20250626.110135-1.jar"; \
     else \
       curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
       -o app.jar \
