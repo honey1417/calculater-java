@@ -13,8 +13,7 @@ ARG NEXUS_PASSWORD
 RUN curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
   -o app.jar \
   "http://34.10.114.146:8081/repository/maven-artifacts-release-repo/com/example/calculator/1.0.0/calculator-1.0.0.jar" && \
-  ls -lh app.jar && \
-  file app.jar
+  ls -lh app.jar 
 
 # ---------- Stage 2: Final Image ----------
 # Use a lightweight JRE image to run the application
