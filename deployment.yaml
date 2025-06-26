@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: calculator-snapshot
-          image: harshini1402/calculator-repo:snap-1
+          image: harshini1402/calculator-repo:snap-2
           ports:
             - containerPort: 8081
 
