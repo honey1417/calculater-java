@@ -12,7 +12,7 @@ ARG NEXUS_PASSWORD
 # Download the latest release JAR from Nexus using curl with credentials
 RUN curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
   -o app.jar \
-  "http://34.10.114.146:8081/repository/maven-artifacts-release-repo/com/example/calculator/1.0.0/calculator-1.0.0.jar"
+  "http://34.10.114.146:8081/repository/maven-artifacts-release-repo/com/example/calculator/1.0.0/calculator-1.0.0.jar" && \
   ls -lh app.jar && \
   file app.jar
 
