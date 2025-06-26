@@ -8,8 +8,8 @@ ARG NEXUS_USERNAME
 ARG NEXUS_PASSWORD
 ARG BUILD_TYPE=SNAPSHOT  # Accepts 'SNAPSHOT' or 'RELEASE'
 
-Set the correct JAR URL based on the build type
-Use shell logic in RUN to fetch the correct JAR
+# Set the correct JAR URL based on the build type
+# Use shell logic in RUN to fetch the correct JAR
 RUN if [ "$BUILD_TYPE" = "SNAPSHOT" ]; then \
       curl -u ${NEXUS_USERNAME}:${NEXUS_PASSWORD} \
       -o app.jar \
